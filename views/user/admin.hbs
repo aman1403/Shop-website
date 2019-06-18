@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Admin Profile</h1>
+        <hr>
+        <h2>Pending orders</h2>
+        <a href="/stock">Stock Management</a>
+        {{# each orders }}
+         <a href="/remov/{{this._id}}">Delete</a>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {{# each this.items }}
+                            <li class="list-group-item">
+                                <span class="badge">{{ this.price }}</span>
+                                {{ this.item.title }} | {{ this.qty }} Units
+                            </li>
+                        {{/each}}
+                    </ul>
+                  Name:{{this.name}} <br>
+                 Delivery Address:{{ this.address }} <br> 
+                  Mobile NO.:{{ this.phoneno }}
+                </div>
+                <div class="panel-footer">
+                    <strong>Total Price: Rs.{{ this.cart.totalPrice }}</strong>
+                </div>
+            </div>
+            {{/each}}
+    </div>
+</div>
